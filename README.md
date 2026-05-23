@@ -1,6 +1,6 @@
 # 🤖 SUPER JARVIS
 
-### O Assistente Pessoal Definitivo com IA, Smart Home e Clone de WhatsApp
+### O Assistente Pessoal Definitivo com IA.
 
 ---
 
