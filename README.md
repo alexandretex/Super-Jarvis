@@ -1,60 +1,228 @@
-  <h1>🤖 SUPER JARVIS</h1>
-  <p><strong>O Assistente Pessoal Definitivo com IA, Smart Home e Clone de WhatsApp</strong></p>
-</div>
----
-## ✨ Sobre o Projeto
-**SUPER JARVIS** é um assistente de Inteligência Artificial rodando localmente no seu computador, projetado para ouvir, falar, automatizar sua casa e até mesmo clonar a sua personalidade no WhatsApp.
-Construído inicialmente a partir de projetos base de IA, este ecossistema foi modificado extensivamente para incluir interações em tempo real com hardware (Lâmpadas, TVs), APIs da internet, Banco de Dados Vetorial (Memória) e integração com o smartphone do usuário.
----
-## 🚀 Super Funcionalidades
-### 1. Cérebro Híbrido (Groq + Gemini)
-O núcleo de raciocínio utiliza a **API ultrarrápida da Groq (`llama-3.3-70b`)** para garantir latência quase zero durante conversas de voz, com fallback automático para o **Google Gemini** em caso de instabilidade. 
-### 2. Automação Smart Home (eWeLink)
-Integração física com a casa do usuário via ecossistema eWeLink/Alexa.
-- **Controle por Voz Natural:** "Jarvis, apaga a luz da sala."
-- **Multi-Canais:** Capacidade nativa de interpretar módulos com múltiplos interruptores (ex: `device:1`, `device:2`).
-### 3. O "Clone Humano" (WhatsApp Bridge)
-Uma das funcionalidades mais avançadas do sistema. O JARVIS se conecta ao WhatsApp Web (via Node.js/Puppeteer) e atua como o usuário ("Seu Nome / Apelido").
-- **Persona Injetada:** O bot responde usando letras minúsculas, gírias locais ("eai", "suave") e emojis ocasionais.
-- **Isolamento de Segurança:** Amigos não sabem que estão falando com uma IA, e o bot do WhatsApp não tem permissão para acender luzes ou controlar o computador (Sandboxing).
-### 4. Memória de Longo Prazo (RAG - ChromaDB)
-Ao invés de esquecer as coisas quando o terminal é fechado, o SUPER JARVIS utiliza um banco de dados vetorial local (`ChromaDB`) para salvar conversas, detalhes e preferências, relembrando fatos do passado quando necessário.
-### 5. Motor Climático Silencioso
-Integração com o `wttr.in`. Em vez de abrir o navegador de forma incômoda, o JARVIS consulta o clima via requisições ocultas e usa a síntese de voz para relatar as condições climáticas e a umidade de forma fluida.
-### 6. Controle Físico do Computador (Agent Executor)
-Através de comandos, o JARVIS pode assumir o mouse e teclado para abrir arquivos, fechar janelas, pesquisar no Google ou tirar screenshots da tela atual para analisar o que o usuário está vendo.
----
-## ⚙️ Arquitetura e Tecnologias
-- **Python 3.12+** (Back-end principal)
-- **Node.js & Puppeteer** (Servidor do WhatsApp Web Webhooks)
-- **Edge-TTS & Whisper** (Motor de Voz, Texto para Fala e Fala para Texto)
-- **ChromaDB** (Vector Database para Memória RAG)
----
-## ⚡ Instalação e Execução
-### Pré-requisitos
-- Python 3.11 ou superior
-- Node.js instalado (para o módulo do WhatsApp)
-- Chaves de API (Groq e Gemini) configuradas em `config/api_keys.json`
-### Rodando o Sistema
-1. Clone o repositório e entre na pasta:
-```bash
+🤖 SUPER JARVIS
+O Assistente Pessoal Definitivo com IA, Smart Home e Clone de WhatsApp
+✨ Sobre o Projeto
+
+O SUPER JARVIS é um assistente de Inteligência Artificial executado localmente no computador do usuário, projetado para:
+
+🎙️ Ouvir e conversar por voz
+🧠 Memorizar informações e preferências
+🏠 Automatizar dispositivos Smart Home
+💬 Clonar personalidade no WhatsApp
+🖥️ Controlar fisicamente o computador
+
+O projeto evoluiu a partir de bases de IA open-source e foi amplamente modificado para integrar:
+
+Hardware doméstico
+APIs externas
+Banco de memória vetorial (RAG)
+Controle em tempo real
+Automação invisível e contextual
+🚀 Funcionalidades
+🧠 1. Cérebro Híbrido (Groq + Gemini)
+
+O sistema utiliza a API ultrarrápida da Groq (llama-3.3-70b) como núcleo principal de raciocínio, garantindo respostas quase instantâneas em conversas por voz.
+
+Caso haja instabilidade, o sistema realiza fallback automático para o Google Gemini.
+
+Recursos:
+⚡ Latência extremamente baixa
+🔄 Fallback automático
+🎤 Conversação fluida em tempo real
+🏠 2. Automação Smart Home (eWeLink)
+
+Integração completa com o ecossistema eWeLink / Alexa para controle físico da casa.
+
+Exemplos:
+"Jarvis, apaga a luz da sala."
+"Jarvis, liga a TV."
+Recursos:
+🎙️ Controle por voz natural
+💡 Suporte a dispositivos multi-canais
+🔌 Compatível com interruptores inteligentes
+
+Exemplo:
+
+device:1
+device:2
+💬 3. Clone Humano no WhatsApp
+
+Uma das funcionalidades mais avançadas do projeto.
+
+O SUPER JARVIS conecta-se ao WhatsApp Web usando:
+
+Node.js
+Puppeteer
+whatsapp-web.js
+
+E passa a agir como o próprio usuário.
+
+Características:
+🧠 Persona personalizada
+😎 Uso de gírias locais
+😊 Emojis ocasionais
+🔒 Sistema isolado (sandbox)
+Segurança
+
+O módulo do WhatsApp não possui permissão para:
+
+controlar luzes
+acessar o computador
+executar automações críticas
+
+Isso evita riscos de segurança.
+
+🧠 4. Memória de Longo Prazo (RAG + ChromaDB)
+
+O SUPER JARVIS utiliza ChromaDB como banco de dados vetorial local para armazenar:
+
+Conversas
+Preferências
+Informações importantes
+Contexto histórico
+
+Assim, o sistema consegue lembrar fatos mesmo após reinicializações.
+
+Recursos:
+🧠 Memória persistente
+🔍 Recuperação contextual
+📚 Aprendizado contínuo
+🌦️ 5. Motor Climático Silencioso
+
+Integração com o serviço wttr.in.
+
+O clima é consultado silenciosamente via requisições HTTP, sem abrir navegador.
+
+Recursos:
+🌡️ Temperatura atual
+💧 Umidade do ar
+☁️ Condições climáticas
+🔊 Resposta por voz natural
+🖥️ 6. Controle Físico do Computador (Agent Executor)
+
+O SUPER JARVIS pode controlar:
+
+Mouse
+Teclado
+Janelas
+Navegador
+Arquivos locais
+
+Além disso, consegue capturar screenshots da tela para interpretar visualmente o contexto do usuário.
+
+Exemplos:
+"Jarvis, pesquisa no Google."
+"Jarvis, fecha essa janela."
+"Jarvis, abre meu projeto."
+⚙️ Arquitetura e Tecnologias
+Back-end
+Python 3.12+
+Voz e IA
+Edge-TTS
+Whisper
+Groq API
+Google Gemini
+Memória
+ChromaDB
+WhatsApp
+Node.js
+Puppeteer
+whatsapp-web.js
+📂 Estrutura do Projeto
+SUPER-JARVIS/
+│
+├── main.py
+├── requirements.txt
+├── config/
+│   └── api_keys.json
+│
+├── whatsapp-service/
+│   ├── package.json
+│   └── ...
+│
+├── memory/
+├── automation/
+├── voice/
+└── agents/
+⚡ Instalação e Execução
+📋 Pré-requisitos
+
+Antes de começar, você precisará de:
+
+Python 3.11+
+Node.js instalado
+Conta Groq
+Conta Google Gemini
+APIs configuradas
+🔑 Configuração das APIs
+
+Configure suas chaves no arquivo:
+
+config/api_keys.json
+
+Exemplo:
+
+{
+  "groq_api_key": "SUA_CHAVE",
+  "gemini_api_key": "SUA_CHAVE"
+}
+📥 Clone o Repositório
 git clone https://github.com/SeuUsuario/Super-Jarvis.git
 cd Super-Jarvis
-```
-2. Instale as dependências:
-```bash
+📦 Instale as Dependências
+Python
 pip install -r requirements.txt
+WhatsApp Service
 cd whatsapp-service
 npm install
 cd ..
-```
-3. Inicie o SUPER JARVIS:
-```bash
+▶️ Execute o Sistema
 python main.py
-```
-> Após iniciar, um link para o **QR Code do WhatsApp** aparecerá no console para você vincular o seu aparelho e ativar o modo Clone.
----
-## ⚠️ Isenção de Responsabilidade
-Este é um projeto pessoal de automação. O uso do bot de WhatsApp através da injeção no WhatsApp Web (`whatsapp-web.js`) não é oficialmente endossado pela Meta e pode violar os Termos de Serviço se usado para spam.
----
-*Desenvolvido e mantido para automação residencial e inteligência invisível.*
+📱 Vincular WhatsApp
+
+Após iniciar o sistema:
+
+Um QR Code aparecerá no terminal
+Escaneie usando o WhatsApp
+O modo Clone será ativado
+🔒 Segurança
+
+O projeto utiliza isolamento de módulos para evitar acessos indevidos entre:
+
+WhatsApp Bot
+Automação residencial
+Controle físico do PC
+
+Isso reduz riscos de execução acidental de comandos críticos.
+
+⚠️ Aviso Legal
+
+Este é um projeto experimental e pessoal de automação residencial.
+
+O uso de bibliotecas como:
+
+whatsapp-web.js
+Puppeteer
+automações no WhatsApp Web
+
+não é oficialmente suportado pela Meta e pode violar os Termos de Serviço se utilizado para:
+
+spam
+automação abusiva
+envio massivo de mensagens
+
+Use com responsabilidade.
+
+🧩 Futuras Expansões
+📷 Visão computacional em tempo real
+🧠 Agentes autônomos multi-tarefas
+🛰️ Integração com dispositivos IoT avançados
+📱 Aplicativo mobile próprio
+☁️ Sincronização entre dispositivos
+👨‍💻 Autor
+
+Projeto desenvolvido para automação invisível, inteligência contextual e interação humano-máquina avançada.
+
+⭐ SUPER JARVIS
+
+“Não é apenas um assistente.
+É uma extensão inteligente do usuário.”
